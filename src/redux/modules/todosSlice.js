@@ -9,9 +9,8 @@ import { waitTwoSeconds } from '../../utils';
 export const __addToDo = createAsyncThunk(
   '__addToDo',
   async (payload, thunkAPI) => {
-    setTimeout(() => {
-      thunkAPI.dispatch(addTodo(payload))
-    }, 2000)
+    //waitTwoSeconds 반환한 프로미스 객체가 resolve상태가 되면 then이 실행이 된다. 
+    waitTwoSeconds().then(() => thunkAPI.dispatch(addTodo(payload)))
 
   }
 );
@@ -19,9 +18,7 @@ export const __addToDo = createAsyncThunk(
 export const __deleteTodo = createAsyncThunk(
   '__deleteToDo',
   async (payload, thunkAPI) => {
-    setTimeout(() => {
-      thunkAPI.dispatch(deleteTodo(payload))
-    }, 2000)
+    waitTwoSeconds().then(() => thunkAPI.dispatch(deleteTodo(payload)))
   }
 );
 
